@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "04d54d6a-517c-4bae-a295-73768a842e8d": {
+      "ProjectGuid": "04d54d6a-517c-4bae-a295-73768a842e8d",
+      "DisplayName": "MIP_client",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

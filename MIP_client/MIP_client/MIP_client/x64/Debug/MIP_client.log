@@ -1,0 +1,8 @@
+﻿  LOG_UTILS.cpp
+D:\computer project\MyIntranetPenetration\MIP_client\MIP_client\MIP_client\LOG_UTILS.h(41,2): warning C4091: “typedef ”: 没有声明变量时忽略“LOG_MASK_GTD”的左侧
+  main.cpp
+D:\computer project\MyIntranetPenetration\MIP_client\MIP_client\MIP_client\LOG_UTILS.h(41,2): warning C4091: “typedef ”: 没有声明变量时忽略“LOG_MASK_GTD”的左侧
+D:\computer project\MyIntranetPenetration\MIP_client\MIP_client\MIP_client\main.cpp(28,24): warning C4244: “=”: 从“SOCKET”转换到“int”，可能丢失数据
+  MySocket.cpp
+  正在生成代码...
+  MIP_client.vcxproj -> D:\computer project\MyIntranetPenetration\MIP_client\MIP_client\x64\Debug\MIP_client.exe
