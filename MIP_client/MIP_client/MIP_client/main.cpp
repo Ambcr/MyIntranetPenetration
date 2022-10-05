@@ -3,12 +3,13 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 #include<ws2tcpip.h>
+#include"serverIP.h" //ONLY DEFINE SERVER_IP
 //网络通信需要包含的头文件、需要加载的库文件
 #include <WinSock2.h>
 #pragma comment(lib,"WS2_32.lib")
 #include "LOG_UTILS.h"
 
-#define SERVER_IP "198.74.121.241"
+
 #define SERVER_PORT 12347
 #define MAX_BUFFER 256
 

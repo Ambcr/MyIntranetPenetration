@@ -1,1 +1,3 @@
 ./MIP_server/serverIP.h
+MIP_client/MIP_client/.vs/*
+.gitignore
