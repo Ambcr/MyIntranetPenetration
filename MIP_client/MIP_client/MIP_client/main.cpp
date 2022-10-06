@@ -12,7 +12,7 @@
 
 #define LOCALHOST_PORT 8000
 #define SERVER_PORT 12347
-#define MAX_BUFFER 256
+#define MAX_BUFFER 4096
 
 int main() {
 	LOG(LOG_INFO, "Main Thread Start!");
@@ -71,20 +71,30 @@ int main() {
 	LOG(LOG_INFO, "GTD:BEFORE TRANS.");
 	while (1)
 	{
-
 		memset(buf, 0, sizeof(buf));
-		while (recv(client_socket, buf, sizeof(buf), 0) > 0)
+		while (ret = recv(client_socket, buf, sizeof(buf)-1, 0) > 0)
 		{
 			LOG(LOG_INFO, "GTD: RECEIVE CLIENT_SOCKET AND SEND TO LOCAL.");
+			printf("GTD: buffer = %s,ret = %d\n", buf,ret);
 			send(local_socket, buf, sizeof(buf), 0);
 			memset(buf, 0, sizeof(buf));
 		}
+		if (ret < 0) {
+			LOG(LOG_ERROR, "GTD: client_socket closed");
+			break;
+		}
 		memset(buf, 0, sizeof(buf));
-		while (recv(local_socket, buf, sizeof(buf), 0) > 0)
+		while (ret = recv(local_socket, buf, sizeof(buf)-1, 0) > 0)
 		{
 			LOG(LOG_INFO, "GTD: REVEIVE LOCAL_SOCKET AND SEND TO SERVER.");
+			printf("GTD: buffer = %s\n", buf);
 			send(client_socket, buf, sizeof(buf), 0);
 			memset(buf, 0, sizeof(buf));
+		}
+		//printf("GTD:local_socket ret = %d\n", ret);
+		if (ret < 0) {
+			LOG(LOG_ERROR, "GTD: local_socket closed");
+			break;
 		}
 	}
 	closesocket(client_socket);
